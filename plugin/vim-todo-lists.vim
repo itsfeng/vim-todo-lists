@@ -358,8 +358,6 @@ endfunction
 
 " Sets mapping for normal navigation and editing mode
 function! VimTodoListsSetNormalMode()
-  nunmap <buffer> o
-  nunmap <buffer> O
   nunmap <buffer> j
   nunmap <buffer> k
   iunmap <buffer> <CR>
@@ -372,10 +370,10 @@ endfunction
 
 " Sets mappings for faster item navigation and editing
 function! VimTodoListsSetItemMode()
-  nnoremap <buffer><silent> o :VimTodoListsCreateNewItemBelow<CR>
-  nnoremap <buffer><silent> O :VimTodoListsCreateNewItemAbove<CR>
   nnoremap <buffer><silent> j :VimTodoListsGoToNextItem<CR>
   nnoremap <buffer><silent> k :VimTodoListsGoToPreviousItem<CR>
+  nnoremap <buffer><silent> <Space> :silent call VimTodoListsAppendDate()<CR>:VimTodoListsToggleItem<CR>
+  vnoremap <buffer><silent> <Space> :silent call VimTodoListsAppendDate()<CR>:VimTodoListsToggleItem<CR>
   nnoremap <buffer><silent> <Space> :VimTodoListsToggleItem<CR>
   vnoremap <buffer><silent> <Space> :VimTodoListsToggleItem<CR>
   inoremap <buffer><silent> <CR> <ESC>:call VimTodoListsAppendDate()<CR>:silent call VimTodoListsCreateNewItemBelow()<CR>
