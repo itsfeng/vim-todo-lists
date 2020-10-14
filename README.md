@@ -166,9 +166,7 @@ let g:VimTodoListsMoveItems = 0
 
 * `j` - go to next item
 * `k` - go to previous item
-* `O` - create new item above the cursor
-* `o` - create new item below the cursor
-* `<Space>` - toggle current item
+* `<Space>` - toggle current item & append date (wip)
 * `<CR>` - create new item in `insert mode`
 * `<Tab>` - increases the indent of current (or selected) line(s)
 * `<Shift-Tab>` - decreases the indent of current (or selected) line(s)
