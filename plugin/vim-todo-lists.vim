@@ -30,13 +30,9 @@ function! VimTodoListsInit()
     let g:VimTodoListsKeepSameIndent = 1
   endif
 
-  if !exists('g:VimTodoListsDatesEnabled')
-    let g:VimTodoListsDatesEnabled = 1
-  endif
-
-  if !exists('g:VimTodoListsDatesFormat')
-    let g:VimTodoListsDatesFormat = "%X, %d %b %Y"
-  endif
+  " Set Dates & Format
+  let g:VimTodoListsDatesEnabled = 1
+  let g:VimTodoListsDatesFormat = "%Y-%M-%d"
 
   setlocal tabstop=2
   setlocal shiftwidth=2 expandtab
