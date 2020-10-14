@@ -31,7 +31,7 @@ function! VimTodoListsInit()
   endif
 
   if !exists('g:VimTodoListsDatesEnabled')
-    let g:VimTodoListsDatesEnabled = 0
+    let g:VimTodoListsDatesEnabled = 1
   endif
 
   if !exists('g:VimTodoListsDatesFormat')
