@@ -32,7 +32,7 @@ function! VimTodoListsInit()
 
   " Set Dates & Format
   let g:VimTodoListsDatesEnabled = 1
-  let g:VimTodoListsDatesFormat = "%Y-%MM-%d"
+  let g:VimTodoListsDatesFormat = "%Y-%m-%d"
 
   setlocal tabstop=2
   setlocal shiftwidth=2 expandtab
