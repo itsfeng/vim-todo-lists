@@ -45,6 +45,8 @@ function! VimTodoListsInit()
 
   call VimTodoListsInitializeTokens()
   call VimTodoListsInitializeSyntax()
+  call VimHeadingsInitializeTokens()
+  call VimHeadingsInitializeSyntax()
 
   if exists('g:VimTodoListsCustomKeyMapper')
     try
@@ -57,6 +59,17 @@ function! VimTodoListsInit()
   else
     call VimTodoListsSetItemMode()
   endif
+endfunction
+
+" Initialize Headings
+function! VimHeadingsInitializeTokens()
+  let g:VimTodoListsHeading = '##'
+endfunction
+
+" Initialize Headings Syntax
+function! VimHeadingsInitializeSyntax()
+  execute("syntax match vimTodoListsHead '^\\s*".g:VimTodoListsHeading.".*'")
+  highlight link vimTodoListsHead Function
 endfunction
 
 " Initializes done/undone tokens
