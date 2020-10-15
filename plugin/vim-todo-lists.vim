@@ -374,10 +374,11 @@ function! VimTodoListsSetItemMode()
   nnoremap <buffer><silent> k :VimTodoListsGoToPreviousItem<CR>
   nnoremap <buffer><silent> <Space> :silent call VimTodoListsAppendDate()<CR>:VimTodoListsToggleItem<CR>
   vnoremap <buffer><silent> <Space> :silent call VimTodoListsAppendDate()<CR>:VimTodoListsToggleItem<CR>
-  nnoremap <buffer><silent> <Space> :VimTodoListsToggleItem<CR>
-  vnoremap <buffer><silent> <Space> :VimTodoListsToggleItem<CR>
-  inoremap <buffer><silent> <CR> <ESC>:call VimTodoListsAppendDate()<CR>:silent call VimTodoListsCreateNewItemBelow()<CR>
-  inoremap <buffer><silent> <kEnter> <ESC>:call VimTodoListsAppendDate()<CR>A<CR><ESC>:VimTodoListsCreateNewItem<CR>
+  nnoremap <buffer><silent> <S-CR> <ESC>>:silent call VimTodoListsCreateNewItemAbove()<CR>
+  nnoremap <buffer><silent> <CR> <ESC>:silent call VimTodoListsCreateNewItemBelow()<CR>
+  "inoremap <buffer><silent> <S-CR> <ESC>>:silent call VimTodoListsCreateNewItemAbove()<CR>
+  "inoremap <buffer><silent> <CR> <ESC>:silent call VimTodoListsCreateNewItemBelow()<CR>
+  "inoremap <buffer><silent> <kEnter> <ESC>:call VimTodoListsAppendDate()<CR>A<CR><ESC>:VimTodoListsCreateNewItem<CR>
   noremap <buffer><silent> <leader>e :silent call VimTodoListsSetNormalMode()<CR>
   nnoremap <buffer><silent> <Tab> :VimTodoListsIncreaseIndent<CR>
   nnoremap <buffer><silent> <S-Tab> :VimTodoListsDecreaseIndent<CR>
