@@ -41,8 +41,8 @@ function! VimTodoListsInit()
 
   call VimTodoListsInitializeTokens()
   call VimTodoListsInitializeSyntax()
-  call VimHeadingsInitializeTokens()
   call VimHeadingsInitializeSyntax()
+  call VimTagInitializeSyntax()
 
   if exists('g:VimTodoListsCustomKeyMapper')
     try
@@ -57,14 +57,9 @@ function! VimTodoListsInit()
   endif
 endfunction
 
-" Initialize Headings
-function! VimHeadingsInitializeTokens()
-  let g:VimTodoListsHeading = '##'
-endfunction
-
 " Initialize Headings Syntax
 function! VimHeadingsInitializeSyntax()
-  execute("syntax match vimTodoListsHead '^\\s*".g:VimTodoListsHeading.".*'")
+  execute("syntax match vimTodoListsHead '^\\s*##.*'")
   highlight link vimTodoListsHead Function
 endfunction
 
@@ -92,7 +87,18 @@ function! VimTodoListsInitializeSyntax()
 
   highlight link vimTodoListsDone Comment
   highlight link vimTodoListsNormal Normal
-  highlight link vimTodoListsImportant Underlined
+  highlight link vimTodoListsImportant Statement
+endfunction
+
+" Initialize Tags Syntax
+function! VimTagInitializeSyntax()
+  execute("syntax region vimTodoTagItem start='#\\w\\+' end='\\s' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
+  execute("syntax region vimTodoTagMPA start='MPA' end='\\s' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
+  execute("syntax region vimTodoTagMeet start='\\[M' end='T\\]' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
+  
+  highlight link vimTodoTagItem Typedef
+  highlight link vimTodoTagMPA Define
+  highlight link vimTodoTagMeet Number
 endfunction
 
 " Sets the item done
@@ -391,8 +397,8 @@ endfunction
 " Appends date at the end of the line
 function! VimTodoListsAppendDate()
   if(g:VimTodoListsDatesEnabled == 1)
-    let l:date = strftime(g:VimTodoListsDatesFormat)
-    execute "s/$/ (" . l:date . ")"
+    	  let donedate = strftime(g:VimTodoListsDatesFormat)
+	  execute "s/$/ (" . donedate . ")"
   endif
 endfunction
 
