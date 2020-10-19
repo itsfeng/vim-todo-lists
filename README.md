@@ -8,19 +8,21 @@ Installation
 
 #### Install vim-todo-lists
 
-##### Pathogen
+##### Plug:
 
-    $ cd ~/.vim/bundle
-    $ git clone https://github.com/aserebryakov/vim-todo-lists.git
+add the following to your .vimrc config
 
-##### NeoBundle
+```
+call plug#begin('~/.vim/plugged')
+plug 'itsfeng/vim-todo-lists'
+call plug#end()
+```
 
-    NeoBundle 'aserebryakov/vim-todo-lists'
+In vim run:
 
-##### Without plugin manager
-
-Clone or download this repository and copy its contents to your `~/.vim/`
-directory.
+```
+:PlugInstall
+```
 
 Usage
 -----
@@ -215,7 +217,7 @@ Contribution
 
 Source code and issues are hosted on GitHub:
 
-    https://github.com/aserebryakov/vim-todo-lists
+    https://github.com/itsfeng/vim-todo-lists
 
 If you are going to make a pull request, you should use `dev` branch for
 functionality implementation to simplify the merge procedure.
@@ -224,75 +226,3 @@ License
 -------
 
 [MIT License](https://opensource.org/licenses/MIT)
-
-Changelog
----------
-
-#### 0.8.0
-
-**Breaking Change**
-
-* Added option to configure TODO items
-* File extension changed to `.todo.md` from `.todo`
-* Item indentation level is kept when creating a new one
-* Removed migration from older formats
-* Added plugin initialization for `todo` filetype
-* New item can be created with keypad Enter key
-* Makes normal mode keys more consistent
-
-#### 0.7.1
-
-* Syntax highlight is fixed
-
-#### 0.7.0
-
-* Added automatic date insertion feature
-* Added mappings for fast increasing/decreasing indent
-* Items list are made markdown compatible (old files are updated automatically on load)
-
-#### 0.6.0
-
-* Added items moving on state change
-
-#### 0.5.1
-
-* Fixed the annoying noise when navigating over items in default mode
-* Fixed the cursor position after the item is toggled
-
-#### 0.5.0
-
-* Added items highlighting
-
-#### 0.4.0
-
-* Added items hierarchy support
-
-#### 0.3.0
-
-* Added items toggling in visual mode
-* Improves work with indentations of list items
-* Fixed the error when trying to navigate the buffer that doesn't contain items
-
-#### 0.2.0
-
-* Added an option to configure custom key mappings
-
-#### 0.1.1
-
-* Fixes broken compatibility with the [filestyle](https://github.com/aserebryakov/filestyle) plugin
-
-#### 0.1.0
-
-* Navigation in TODO list
-* Adding new items
-* Items toggling
-
-Contributors
-------------
-
-* Alexander Serebryakov, author ([GitHub](https://github.com/aserebryakov))
-* Jake Mason, contributor ([GitHub](https://github.com/jakemason))
-* Alexandr Kondratev, contributor ([GitHub](https://github.com/theg4sh))
-* Jannis Jorre, contributor ([GitHub](https://github.com/jeyj0))
-* thehunmonkgroup, contributor ([GitHub](https://github.com/thehunmonkgroup))
-* Suchandra Thapa, contributor ([GitHub](https://github.com/sthapa))
