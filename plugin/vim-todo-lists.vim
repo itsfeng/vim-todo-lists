@@ -95,12 +95,14 @@ function! VimTagInitializeSyntax()
   execute("syntax region vimTodoTagItem start='#\\w\\+' end='\\s' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
   execute("syntax region vimTodoTagMPA start='MPA' end='\\s' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
   execute("syntax region vimTodoTagMeet start='\\[M' end='T\\]' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
-  execute("syntax region vimTodoTagMention start='@' end=':\\s' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
+  execute("syntax region vimTodoTagMention start='@' end='\\s' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
+  execute("syntax region vimTodoTagVorhaben start='V[0-9]*' end='\\s' oneline containedin=vimTodoListsNormal,vimTodoListsImportant,vimTodoListsDone")
 
   highlight link vimTodoTagItem Typedef
   highlight link vimTodoTagMPA Define
   highlight link vimTodoTagMeet Number
   highlight link vimTodoTagMention Define
+  highlight link vimTodoTagVorhaben Define
 endfunction
 
 " Sets the item done
